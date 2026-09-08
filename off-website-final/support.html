@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support — OFF</title>
+<meta name="description" content="Help with the OFF app and device. Setup, troubleshooting, and how to reach us.">
+<link rel="icon" href="img/icon.jpg">
+<style>
+:root{
+  --ink:#0B0B0D;
+  --line:rgba(255,255,255,.09);
+  --line2:rgba(255,255,255,.16);
+  --text:#F2F3F4;
+  --dim:#9a9ca0;
+  --dimmer:#5c5e62;
+  --accent:#C9CBCE;
+  --accent-dim:rgba(201,203,206,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif;
+  background:var(--ink);color:var(--text);
+  -webkit-font-smoothing:antialiased;line-height:1.65;font-size:16px;
+}
+a{color:inherit}
+.wrap{max-width:1160px;margin:0 auto;padding:0 30px}
+
+nav{position:sticky;top:0;z-index:60;background:rgba(11,11,13,.75);backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+.brand img{height:24px;width:auto}
+.navlinks{display:flex;align-items:center;gap:26px;font-size:14.5px}
+.navlinks a{color:var(--dim)}
+.navlinks a:hover{color:var(--text)}
+.navlinks .current{color:var(--text)}
+
+main{padding:64px 0 100px}
+.doctype{font-size:12.5px;color:var(--dimmer);letter-spacing:.06em;margin-bottom:10px}
+.doctitle{font-size:34px;font-weight:600;letter-spacing:-.02em;line-height:1.15;margin-bottom:14px}
+.lede{color:var(--dim);font-size:17px;max-width:52ch;margin-bottom:44px}
+
+.contactcard{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:14px;padding:24px 26px;margin-bottom:60px;display:flex;gap:20px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.contactcard .k{font-size:12.5px;color:var(--dimmer);letter-spacing:.05em;margin-bottom:6px}
+.contactcard .v{font-size:17px}
+.contactcard .rt{font-size:14px;color:var(--dimmer)}
+
+.section-title{font-size:12px;color:var(--dimmer);letter-spacing:.08em;margin:56px 0 20px;text-transform:uppercase}
+.section-title:first-of-type{margin-top:0}
+
+ol.steps{counter-reset:s;margin-bottom:8px}
+ol.steps li{list-style:none;display:flex;gap:18px;padding:18px 0;border-bottom:1px solid var(--line)}
+ol.steps li:first-child{border-top:1px solid var(--line)}
+ol.steps .n{counter-increment:s;font-size:13px;color:var(--dimmer);width:22px;flex:none;padding-top:2px}
+ol.steps .n::before{content:counter(s)}
+ol.steps p{color:var(--dim);font-size:15.5px;margin:0}
+
+details{border-bottom:1px solid var(--line);padding:20px 0}
+details:first-of-type{border-top:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;font-size:16px;font-weight:500}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--dimmer);font-size:20px;line-height:1.1;flex:none}
+details[open] summary::after{content:"–"}
+details p{color:var(--dim);font-size:15.5px;margin-top:12px;max-width:64ch}
+
+.linkrow{color:var(--dim);font-size:15.5px;max-width:64ch}
+.linkrow a{color:var(--text);text-decoration:underline;text-decoration-color:var(--line2);text-underline-offset:3px}
+
+footer{border-top:1px solid var(--line);padding:44px 0}
+.foot-grid{display:flex;flex-wrap:wrap;gap:22px;justify-content:space-between;align-items:center}
+footer .brand img{height:20px;opacity:.8}
+.footlinks a{margin-right:22px;font-size:14px;color:var(--dim)}
+.footlinks a:hover{color:var(--text)}
+.footnote{font-size:13.5px;color:var(--dimmer)}
+
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="img/logo-metal.png" alt="OFF"></a>
+    <div class="navlinks">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="support.html" class="current">Support</a>
+      <a href="index.html">← Site</a>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+  <div class="doctype">Help centre</div>
+  <div class="doctitle">Support</div>
+  <p class="lede">Most things are answered below. If yours isn't, write to us and a person will reply.</p>
+
+  <div class="contactcard">
+    <div>
+      <div class="k">EMAIL</div>
+      <div class="v"><a href="mailto:hello@off-device.com">hello@off-device.com</a></div>
+    </div>
+    <div class="rt">We reply within two working days</div>
+  </div>
+
+  <div class="section-title">Getting started</div>
+  <ol class="steps">
+    <li><span class="n"></span><p>Download OFF from the App Store and sign in with your email.</p></li>
+    <li><span class="n"></span><p>Allow Screen Time access when the app asks. Blocking cannot work without it.</p></li>
+    <li><span class="n"></span><p>Open Blocks, choose the apps you want gone, and save.</p></li>
+    <li><span class="n"></span><p>Hold the top of your iPhone against the OFF device. The session starts.</p></li>
+    <li><span class="n"></span><p>Tap the device again whenever you want your apps back.</p></li>
+  </ol>
+
+  <div class="section-title">Troubleshooting</div>
+
+  <details>
+    <summary>Nothing happens when I tap the device</summary>
+    <p>Hold the very top edge of the back of your iPhone against the centre of the device and keep it still for a second. NFC on iPhone is read from the top, not the middle. Make sure the screen is on and unlocked, and that your case isn't unusually thick or metal.</p>
+  </details>
+  <details>
+    <summary>It says this isn't a registered OFF tag</summary>
+    <p>Only genuine OFF devices work with the app. If you're tapping a device you bought from us and see this, email us the order details and we'll sort it out.</p>
+  </details>
+  <details>
+    <summary>Apps aren't actually being blocked</summary>
+    <p>Open Settings inside the app and check that Screen Time access says granted. If it says denied, go to the iPhone's Settings app, then Screen Time, and allow OFF. Also confirm your block has apps selected — a block with nothing chosen does nothing.</p>
+  </details>
+  <details>
+    <summary>I didn't get my sign-in code</summary>
+    <p>Check your spam folder first. Codes expire after a short time, so request a fresh one if it's been a while. If nothing arrives at all, email us from the address you're trying to use.</p>
+  </details>
+  <details>
+    <summary>I'm stuck in a session and can't find my device</summary>
+    <p>Open the app, go to Settings, and use an emergency unlock. It ends the session immediately. Use them sparingly — there's a limited number.</p>
+  </details>
+  <details>
+    <summary>My schedule didn't start</summary>
+    <p>Scheduled windows have to be at least 15 minutes long — that's an Apple requirement. Also check the schedule is enabled and has a block selected that contains apps.</p>
+  </details>
+  <details>
+    <summary>I signed out and lost my blocks</summary>
+    <p>That's intended. Signing out clears this device's blocks, schedules, and history so the next person starts fresh. Your blocks aren't stored on our servers.</p>
+  </details>
+
+  <div class="section-title">Orders and returns</div>
+  <p class="linkrow">For anything about an order, delivery, a replacement, or a return, email us with your order details. Returns are accepted within 30 days as described in the <a href="terms.html">terms</a>.</p>
+
+  <div class="section-title">Privacy</div>
+  <p class="linkrow">We don't collect your app choices or usage. Read the <a href="privacy.html">privacy policy</a> for the detail, or email us to have your account deleted.</p>
+</main>
+
+<footer>
+  <div class="wrap foot-grid">
+    <a class="brand" href="index.html"><img src="img/logo-metal.png" alt="OFF"></a>
+    <div class="footlinks">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="support.html">Support</a>
+    </div>
+    <div class="footnote">© 2026 OFF · Dubai</div>
+  </div>
+</footer>
+
+</body>
+</html>
