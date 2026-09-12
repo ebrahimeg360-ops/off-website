@@ -1,57 +1,19 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>OFF — Physical App Blocker &amp; Focus Device | Beat Phone Distraction</title>
-<meta name="description" content="OFF is a physical NFC focus device that blocks distracting apps with one tap. A screen-time tool with no subscription — tap to focus, tap to return. Made in Dubai.">
-<meta name="keywords" content="app blocker, focus device, block distracting apps, screen time, nfc focus device, phone distraction, digital detox, productivity device, stop phone addiction, no subscription app blocker">
-<link rel="canonical" href="https://off-device.com/">
-<meta name="robots" content="index, follow">
-<meta name="theme-color" content="#0B0B0D">
+<title>OFF — The physical device that blocks distracting apps</title>
+<meta name="description" content="OFF is a physical device you tap your phone to. The distracting apps you choose stop opening. Calls and messages carry on. Made in Dubai. 1-year warranty. Cash on delivery.">
+<meta property="og:title" content="OFF — Tap it once. Your phone behaves.">
+<meta property="og:description" content="A physical device that blocks distracting apps with a tap. Made in Dubai.">
+<meta property="og:type" content="product">
 <link rel="icon" href="img/icon.jpg">
-
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://off-device.com/">
-<meta property="og:site_name" content="OFF">
-<meta property="og:title" content="OFF — Physical App Blocker &amp; Focus Device">
-<meta property="og:description" content="A physical device you tap your phone to. The distracting apps you chose stop opening. Tap again to come back. No subscription.">
-<meta property="og:image" content="https://off-device.com/img/flatlay.jpg">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="OFF — Physical App Blocker &amp; Focus Device">
-<meta name="twitter:description" content="Tap your phone to the device. The distracting apps you chose stop opening. Tap again to come back.">
-<meta name="twitter:image" content="https://off-device.com/img/flatlay.jpg">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "OFF",
-  "description": "A physical NFC focus device that blocks distracting apps on your iPhone with a single tap. No subscription, no battery, magnetic back.",
-  "brand": { "@type": "Brand", "name": "OFF" },
-  "category": "Focus & Productivity Device",
-  "url": "https://off-device.com/",
-  "image": "https://off-device.com/img/flatlay.jpg"
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {"@type":"Question","name":"Can I get around it?","acceptedAnswer":{"@type":"Answer","text":"If you're determined, yes — it's friction, not a lock. That's deliberate. It makes the easy path the one you actually chose, while leaving a real path available for genuine emergencies."}},
-    {"@type":"Question","name":"Does it see what I do on my phone?","acceptedAnswer":{"@type":"Answer","text":"No. Which apps you block and how you use your phone stay on the phone. We only store the email address you sign in with."}},
-    {"@type":"Question","name":"Does it need charging or pairing?","acceptedAnswer":{"@type":"Answer","text":"Neither. There's no battery and no Bluetooth. Your phone powers the tag for the instant it reads it, the same way a contactless card works."}},
-    {"@type":"Question","name":"Is it available on Android?","acceptedAnswer":{"@type":"Answer","text":"Not yet. OFF is iPhone-only today."}}
-  ]
-}
-</script>
-
 <style>
 :root{
   --ink:#0B0B0D;
+  --ink2:#0F1013;
   --line:rgba(255,255,255,.09);
   --line2:rgba(255,255,255,.16);
   --text:#F2F3F4;
@@ -59,359 +21,643 @@
   --dimmer:#5c5e62;
   --accent:#C9CBCE;
   --accent-dim:rgba(201,203,206,.12);
+  --gold:#E8B23A;
   --red:#e0574c;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
-  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Arial,sans-serif;
   background:var(--ink);color:var(--text);
-  -webkit-font-smoothing:antialiased;line-height:1.6;
+  -webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden;
 }
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
-.wrap{max-width:1160px;margin:0 auto;padding:0 30px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 30px}
 
-/* nav */
-nav{position:sticky;top:0;z-index:70;background:rgba(11,11,13,.75);backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
-.brand{display:flex;align-items:center;gap:8px}
-.brand img{height:24px;width:auto}
-.navlinks{display:flex;align-items:center;gap:28px}
-.navlinks a{font-size:14.5px;color:var(--dim)}
+/* reveal animation */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.6,.2,1),transform .8s cubic-bezier(.2,.6,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* announcement */
+.announce{background:var(--accent);color:var(--ink);text-align:center;padding:9px 16px;font-size:13px;font-weight:500;letter-spacing:.01em}
+
+/* nav pill */
+.navwrap{position:sticky;top:0;z-index:90;padding:14px 20px;background:linear-gradient(var(--ink),rgba(11,11,13,.4) 70%,transparent)}
+nav{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;
+  background:rgba(20,21,24,.72);backdrop-filter:saturate(160%) blur(18px);
+  border:1px solid var(--line);border-radius:44px;padding:11px 12px 11px 24px}
+.brand{display:flex;align-items:center;gap:8px;font-weight:600}
+.brand img{height:22px;width:auto}
+.navlinks{display:flex;align-items:center;gap:30px}
+.navlinks a{font-size:14.5px;color:var(--dim);transition:color .2s}
 .navlinks a:hover{color:var(--text)}
-.btn{display:inline-flex;align-items:center;gap:8px;font-size:14.5px;font-weight:500;padding:11px 22px;border-radius:10px;border:1px solid transparent}
-.btn-accent{background:var(--accent);color:#0B0B0D}
-.btn-ghost{border-color:var(--line2);color:var(--text)}
-.btn svg{width:14px;height:14px}
+.nav-right{display:flex;align-items:center;gap:14px}
+.nav-cart{position:relative;display:inline-flex;align-items:center;color:var(--text)}
+.nav-cart .badge{position:absolute;top:-7px;right:-9px;background:var(--accent);color:var(--ink);font-size:10.5px;font-weight:700;min-width:16px;height:16px;border-radius:8px;display:flex;align-items:center;justify-content:center;padding:0 4px}
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14.5px;font-weight:600;padding:12px 26px;border-radius:30px;border:1px solid transparent;cursor:pointer;transition:transform .15s,background .2s,opacity .2s;font-family:inherit}
+.btn:active{transform:scale(.97)}
+.btn-accent{background:var(--accent);color:var(--ink)}
+.btn-accent:hover{opacity:.9}
+.btn-ghost{border-color:var(--line2);color:var(--text);background:transparent}
+.btn-ghost:hover{border-color:var(--accent)}
+.btn-dark{background:var(--ink);color:#fff}
 
 /* hero */
-.hero{position:relative;padding:86px 0 0;overflow:hidden}
-.glow{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;pointer-events:none;z-index:0}
-.glow-1{width:520px;height:520px;background:radial-gradient(circle,var(--accent-dim),transparent 70%);top:-160px;right:-160px}
-.hero-grid{position:relative;z-index:1;display:grid;gap:50px;align-items:center;padding-bottom:70px}
-@media(min-width:920px){.hero-grid{grid-template-columns:1.05fr .95fr}}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--dim);border:1px solid var(--line2);padding:6px 14px;border-radius:30px}
-.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
-h1{font-size:clamp(34px,4.6vw,54px);line-height:1.08;letter-spacing:-.03em;font-weight:600;margin-top:22px}
-h1 .accent{color:var(--accent)}
-.sub{font-size:17px;color:var(--dim);margin-top:20px;max-width:46ch}
-.hero-cta{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
-.stats{margin-top:44px;display:flex;gap:38px;flex-wrap:wrap}
-.stats .num{font-size:24px;font-weight:600;letter-spacing:-.02em}
-.stats .lbl{font-size:13px;color:var(--dimmer);margin-top:4px}
+.hero{position:relative;min-height:88vh;display:flex;align-items:center;overflow:hidden;margin-top:-84px;padding-top:84px}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(11,11,13,.92) 0%,rgba(11,11,13,.72) 40%,rgba(11,11,13,.25) 75%,rgba(11,11,13,.5) 100%)}
+.hero-inner{position:relative;z-index:2;padding:60px 0 70px;max-width:620px}
+.rating{display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.rating .stars{color:var(--gold);font-size:15px;letter-spacing:2px}
+.rating span{font-size:13.5px;color:#dcdce0}
+.hero h1{font-size:clamp(40px,6vw,68px);line-height:1.02;letter-spacing:-.035em;font-weight:600}
+.hero .sub{font-size:clamp(16px,2vw,19px);color:#d6d6da;margin-top:22px;max-width:44ch}
+.hero-cta{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.hero-cta .link{font-size:15px;color:#d6d6da;display:inline-flex;align-items:center;gap:6px}
+.hero-cta .link:hover{color:#fff}
 
-.hero-visual{position:relative}
-.hero-visual img{border-radius:20px;border:1px solid var(--line);width:100%;max-height:560px;object-fit:cover}
+/* trust strip */
+.trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.02)}
+.trust .wrap{display:flex;justify-content:center;gap:14px 46px;flex-wrap:wrap;padding:22px 30px}
+.ti{display:flex;align-items:center;gap:9px;font-size:14px;color:var(--dim)}
+.ti svg{width:18px;height:18px;stroke:var(--accent);fill:none;stroke-width:1.6}
 
-/* marquee */
-.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;background:rgba(255,255,255,.02)}
-.marquee-track{display:flex;gap:56px;white-space:nowrap;padding:18px 0;animation:scroll 26s linear infinite;width:max-content}
-.marquee-track span{font-size:13.5px;color:var(--dimmer);letter-spacing:.02em}
-@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
-
+/* sections */
 section{padding:100px 0}
-.sec-head{max-width:640px;margin-bottom:54px}
-.sec-head .eyebrow{margin-bottom:18px}
-h2{font-size:clamp(26px,3.6vw,36px);line-height:1.2;letter-spacing:-.025em;font-weight:600}
-.sec-head p{color:var(--dim);margin-top:14px;font-size:16px}
+.sec-head{max-width:680px;margin:0 auto 56px;text-align:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;color:var(--dim);border:1px solid var(--line2);padding:6px 15px;border-radius:30px;margin-bottom:20px;letter-spacing:.02em;text-transform:uppercase}
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+h2{font-size:clamp(30px,4.4vw,46px);line-height:1.08;letter-spacing:-.03em;font-weight:600}
+.sec-head p{color:var(--dim);margin-top:16px;font-size:17px}
 
-/* bento */
-.bento{display:grid;gap:14px;grid-template-columns:repeat(6,1fr)}
-@media(max-width:920px){.bento{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.bento{grid-template-columns:1fr}}
-.card{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:16px;padding:26px}
-.span-3{grid-column:span 3}
-.span-2{grid-column:span 2}
-.span-4{grid-column:span 4}
-.span-6{grid-column:span 6}
-@media(max-width:920px){.span-3,.span-2,.span-4{grid-column:span 2}.span-6{grid-column:span 2}}
-@media(max-width:600px){.span-3,.span-2,.span-4,.span-6{grid-column:span 1}}
-.card .ico{width:38px;height:38px;border-radius:10px;background:var(--accent-dim);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
-.card .ico svg{width:19px;height:19px;stroke:var(--accent)}
-.card h3{font-size:17px;font-weight:600;margin-bottom:8px}
-.card p{color:var(--dim);font-size:15px}
-.card.feature{display:flex;flex-direction:column;justify-content:center}
-.card.feature img{border-radius:12px;margin-top:18px}
+/* how it works */
+.steps3{display:grid;gap:22px;grid-template-columns:repeat(3,1fr)}
+.stp .ph{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:4/5;border:1px solid var(--line)}
+.stp .ph img{width:100%;height:100%;object-fit:cover}
+.stp .n{font-size:15px;color:var(--accent);font-weight:600;margin:22px 0 6px}
+.stp h3{font-size:21px;font-weight:600;letter-spacing:-.02em}
+.stp p{color:var(--dim);font-size:15.5px;margin-top:8px}
+/* app UI overlay on first photo */
+.ui-overlay{position:absolute;left:18px;bottom:18px;right:18px;background:rgba(15,16,19,.82);backdrop-filter:blur(14px);border:1px solid var(--line2);border-radius:14px;padding:16px}
+.ui-overlay .tabs{display:flex;gap:6px;margin-bottom:14px}
+.ui-overlay .tab{font-size:12px;padding:6px 12px;border-radius:20px;color:var(--dim)}
+.ui-overlay .tab.on{background:var(--accent);color:var(--ink);font-weight:600}
+.ui-overlay .row{display:flex;justify-content:space-between;font-size:13px;padding:8px 0;border-bottom:1px solid var(--line);color:var(--dim)}
+.ui-overlay .row b{color:var(--text);font-weight:500}
+.ui-overlay .apps{display:flex;gap:8px;margin-top:12px}
+.ui-overlay .apps span{width:26px;height:26px;border-radius:7px;background:var(--accent-dim);border:1px solid var(--line)}
 
-/* comparison */
-.compare{display:grid;gap:16px}
-@media(min-width:760px){.compare{grid-template-columns:1fr 1fr}}
-.ccol{border-radius:16px;padding:30px;border:1px solid var(--line)}
-.ccol.bad{background:rgba(224,87,76,.06)}
-.ccol.good{background:var(--accent-dim);border-color:rgba(52,199,89,.3)}
-.ctag{font-size:12.5px;color:var(--dimmer);letter-spacing:.04em;margin-bottom:8px}
-.ccol h3{font-size:19px;font-weight:600;margin-bottom:20px}
-.ccol ul{list-style:none}
-.ccol li{display:flex;gap:10px;padding:9px 0;font-size:15px;color:var(--dim)}
-.ccol.good li{color:var(--text)}
-.mk{flex:none;font-size:14px}
-.ccol.bad .mk{color:var(--red)}
-.ccol.good .mk{color:var(--accent)}
+/* day in the life */
+.day{display:grid;gap:18px;grid-template-columns:repeat(4,1fr)}
+.dcard{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:transform .3s,border-color .3s}
+.dcard:hover{transform:translateY(-4px);border-color:var(--line2)}
+.dcard .im{aspect-ratio:1/1;overflow:hidden}
+.dcard .im img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.dcard:hover .im img{transform:scale(1.05)}
+.dcard .tx{padding:22px}
+.dcard .k{font-size:12px;color:var(--accent);font-weight:600;letter-spacing:.06em}
+.dcard h3{font-size:17px;font-weight:600;margin:8px 0 6px;letter-spacing:-.01em}
+.dcard p{color:var(--dim);font-size:14px}
 
-/* steps */
-.steps{display:grid;gap:2px;background:var(--line);border-radius:16px;overflow:hidden;border:1px solid var(--line)}
-@media(min-width:760px){.steps{grid-template-columns:repeat(3,1fr)}}
-.step{background:var(--ink);padding:34px 30px}
-.step .n{font-size:13px;color:var(--accent);font-weight:600;margin-bottom:16px}
-.step h3{font-size:17px;font-weight:600;margin-bottom:8px}
-.step p{color:var(--dim);font-size:15px}
-
-/* object / spec */
-.objgrid{display:grid;gap:50px;align-items:center}
-@media(min-width:880px){.objgrid{grid-template-columns:1fr 1fr}}
-.objgrid img{border-radius:16px}
-.spec{margin-top:28px}
-.spec div{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px}
+/* object/spec */
+.objgrid{display:grid;gap:56px;align-items:center;grid-template-columns:1fr 1fr}
+.objgrid img{border-radius:20px;border:1px solid var(--line)}
+.spec{margin-top:26px}
+.spec div{display:flex;justify-content:space-between;padding:15px 0;border-bottom:1px solid var(--line);font-size:15px}
 .spec dt{color:var(--dim)}
 
-/* contact */
-.contact-grid{display:grid;gap:16px}
-@media(min-width:760px){.contact-grid{grid-template-columns:repeat(3,1fr)}}
-.cc{display:flex;gap:14px;align-items:center;border:1px solid var(--line);border-radius:14px;padding:20px;background:rgba(255,255,255,.02)}
-.cc:hover{border-color:var(--line2)}
-.cc .ico{width:38px;height:38px;border-radius:10px;background:var(--accent-dim);display:flex;align-items:center;justify-content:center;flex:none}
-.cc .ico svg{width:18px;height:18px;stroke:var(--accent)}
-.cc .k{font-size:12.5px;color:var(--dimmer)}
-.cc .v{font-size:15px;margin-top:2px}
+/* reviews */
+.rev-top{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:40px}
+.rev-score{font-size:52px;font-weight:600;letter-spacing:-.03em;line-height:1}
+.rev-top .stars{color:var(--gold);font-size:19px;letter-spacing:2px}
+.rev-top .c{color:var(--dim);font-size:14px;margin-top:4px}
+.rev-grid{display:grid;gap:18px;grid-template-columns:repeat(3,1fr)}
+.rev{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:16px;padding:24px}
+.rev .s{color:var(--gold);font-size:13px;letter-spacing:1px;margin-bottom:12px}
+.rev p{font-size:15px;color:var(--text);line-height:1.6}
+.rev .who{display:flex;align-items:center;gap:11px;margin-top:18px}
+.rev .av{width:36px;height:36px;border-radius:50%;background:var(--accent-dim);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:var(--accent)}
+.rev .nm{font-size:13.5px;font-weight:500}
+.rev .vf{font-size:11.5px;color:var(--accent)}
+
+/* promise */
+.promise{display:grid;gap:18px;grid-template-columns:repeat(3,1fr)}
+.pm{border:1px solid var(--line);border-radius:18px;padding:30px;background:rgba(255,255,255,.02)}
+.pm .ico{width:44px;height:44px;border-radius:12px;background:var(--accent-dim);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.pm .ico svg{width:21px;height:21px;stroke:var(--accent);fill:none;stroke-width:1.6}
+.pm h3{font-size:18px;font-weight:600;margin-bottom:8px;letter-spacing:-.01em}
+.pm p{color:var(--dim);font-size:14.5px}
+.refrow{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+#myRef{font-size:14px;color:var(--accent)}
 
 /* faq */
-details{border-bottom:1px solid var(--line);padding:20px 0}
-summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;font-size:16px;font-weight:500}
+.faqwrap{max-width:760px;margin:0 auto}
+details{border-bottom:1px solid var(--line);padding:22px 0}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;font-size:17px;font-weight:500}
 summary::-webkit-details-marker{display:none}
-summary::after{content:"+";color:var(--dimmer);font-size:20px;line-height:1.1;flex:none}
-details[open] summary::after{content:"–"}
-details p{color:var(--dim);font-size:15px;margin-top:12px;max-width:62ch}
+summary::after{content:"+";color:var(--dimmer);font-size:22px;line-height:1;flex:none}
+details[open] summary::after{content:"\2013"}
+details p{color:var(--dim);font-size:15px;margin-top:14px;max-width:64ch}
 
-footer{border-top:1px solid var(--line);padding:50px 0}
+/* final cta */
+.finalcta{text-align:center;background:linear-gradient(180deg,rgba(255,255,255,.03),transparent);border-top:1px solid var(--line)}
+.finalcta .price{display:flex;align-items:baseline;gap:10px;justify-content:center;margin:22px 0}
+.finalcta .now{font-size:40px;font-weight:600;letter-spacing:-.02em}
+.finalcta .cur{font-size:18px;color:var(--dim)}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:54px 0}
 .foot-grid{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:center}
-footer .brand img{height:20px;opacity:.8}
+footer .brand img{height:20px;opacity:.85}
 .footlinks a{margin-right:22px;font-size:14px;color:var(--dim)}
 .footlinks a:hover{color:var(--text)}
-.footnote{font-size:13.5px;color:var(--dimmer)}
+.footnote{font-size:13px;color:var(--dimmer);margin-top:14px}
 
+/* cart drawer */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);opacity:0;pointer-events:none;transition:opacity .3s;z-index:98}
+.overlay.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;height:100%;width:410px;max-width:92vw;background:var(--ink2);border-left:1px solid var(--line2);z-index:99;transform:translateX(100%);transition:transform .38s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column}
+.drawer.on{transform:translateX(0)}
+.drawer header{display:flex;align-items:center;justify-content:space-between;padding:22px;border-bottom:1px solid var(--line)}
+.drawer header h3{font-size:18px;font-weight:600}
+.drawer .x{cursor:pointer;color:var(--dim);font-size:24px;line-height:1;background:none;border:none}
+.drawer .body{padding:22px;overflow-y:auto;flex:1}
+.line-item{display:flex;gap:14px;align-items:flex-start;padding-bottom:18px;border-bottom:1px solid var(--line);margin-bottom:20px}
+.line-item img{width:66px;height:66px;border-radius:10px;object-fit:cover;border:1px solid var(--line)}
+.line-item .t{font-size:14.5px;font-weight:500}
+.line-item .p{font-size:13px;color:var(--dim);margin-top:3px}
+.qty{display:flex;align-items:center;margin-top:10px;border:1px solid var(--line2);border-radius:8px;width:fit-content}
+.qty button{width:30px;height:30px;background:none;border:none;color:var(--text);font-size:17px;cursor:pointer}
+.qty span{width:34px;text-align:center;font-size:14px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:12.5px;color:var(--dim);margin-bottom:6px}
+.field input,.field select,.field textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line2);border-radius:9px;padding:12px 13px;color:var(--text);font-size:14.5px;font-family:inherit}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--accent)}
+.refbox{display:flex;gap:8px}
+.refbox input{flex:1}
+.refbox button{white-space:nowrap;padding:0 16px;border-radius:9px;border:1px solid var(--line2);background:none;color:var(--text);font-size:13px;cursor:pointer}
+.summary{border-top:1px solid var(--line);padding:20px 22px;background:rgba(255,255,255,.02)}
+.summary .row{display:flex;justify-content:space-between;font-size:14px;padding:5px 0;color:var(--dim)}
+.summary .row.total{color:var(--text);font-size:18px;font-weight:600;padding-top:12px}
+.summary .row.disc{color:var(--accent)}
+.btn-full{width:100%;justify-content:center;padding:16px;font-size:15.5px;margin-top:14px;border-radius:12px}
+.cod-note{font-size:12px;color:var(--dimmer);text-align:center;margin-top:10px}
+.empty{text-align:center;color:var(--dim);padding:50px 0;font-size:14.5px}
+.toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:var(--ink);padding:13px 24px;border-radius:12px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:all .3s;z-index:120}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+.mobile-buy{position:fixed;bottom:0;left:0;right:0;background:rgba(15,16,19,.95);backdrop-filter:blur(12px);border-top:1px solid var(--line2);padding:12px 18px;display:none;align-items:center;justify-content:space-between;z-index:80}
+
+/* responsive */
+@media(max-width:960px){
+  .steps3{grid-template-columns:1fr}
+  .day{grid-template-columns:1fr 1fr}
+  .objgrid{grid-template-columns:1fr;gap:34px}
+  .rev-grid{grid-template-columns:1fr 1fr}
+  .promise{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .wrap{padding:0 20px}
+  .navlinks{display:none}
+  nav{padding:10px 12px 10px 20px}
+  section{padding:64px 0}
+  .sec-head{margin-bottom:38px}
+  .hero{min-height:auto;padding-top:110px;padding-bottom:20px}
+  .hero-inner{padding:20px 0 40px}
+  .day{grid-template-columns:1fr}
+  .rev-grid{grid-template-columns:1fr}
+  .trust .wrap{gap:14px 26px;padding:18px 20px}
+  .ti{font-size:13px}
+  .mobile-buy{display:flex}
+  body{padding-bottom:74px}
+}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* ===== WOW ANIMATIONS ===== */
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes glowpulse{0%,100%{opacity:.35}50%{opacity:.6}}
+@keyframes ringspin{to{transform:rotate(360deg)}}
+.hero-bg img{animation:heroZoom 18s ease-in-out infinite alternate}
+@keyframes heroZoom{from{transform:scale(1.0)}to{transform:scale(1.08)}}
+.hero-inner h1{opacity:0;transform:translateY(24px);animation:riseIn .9s cubic-bezier(.2,.6,.2,1) .15s forwards}
+.hero-inner .sub{opacity:0;transform:translateY(20px);animation:riseIn .9s cubic-bezier(.2,.6,.2,1) .35s forwards}
+.hero-inner .hero-cta{opacity:0;transform:translateY(18px);animation:riseIn .9s cubic-bezier(.2,.6,.2,1) .55s forwards}
+.hero-inner .rating{opacity:0;animation:riseIn .8s ease .05s forwards}
+@keyframes riseIn{to{opacity:1;transform:none}}
+
+/* live OFF demo block */
+.demo{padding:0 0 100px}
+.demo-card{position:relative;border:1px solid var(--line);border-radius:24px;overflow:hidden;background:radial-gradient(120% 120% at 50% 0%,rgba(201,203,206,.06),transparent 60%),var(--ink2);padding:60px 30px;text-align:center}
+.demo-glow{position:absolute;width:420px;height:420px;border-radius:50%;filter:blur(90px);background:radial-gradient(circle,var(--accent-dim),transparent 70%);top:-160px;left:50%;transform:translateX(-50%);animation:glowpulse 5s ease-in-out infinite;pointer-events:none}
+.demo-ring{position:relative;width:180px;height:180px;margin:0 auto 24px}
+.demo-ring svg{transform:rotate(-90deg)}
+.demo-ring .lbl{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.demo-ring .t{font-size:30px;font-weight:600;letter-spacing:-.02em}
+.demo-ring .s{font-size:12px;color:var(--dim);margin-top:2px;letter-spacing:.08em}
+.demo h2{margin-top:6px}
+.demo .cap{color:var(--dim);font-size:16px;margin-top:12px}
+
+/* magnetic buttons hover lift */
+.btn-accent{will-change:transform}
+.dcard,.stp .ph,.pm,.rev{will-change:transform}
+
+/* count-up stats */
+.wowstats{display:flex;justify-content:center;gap:60px;flex-wrap:wrap;margin-top:40px}
+.wowstat{text-align:center}
+.wowstat .num{font-size:40px;font-weight:600;letter-spacing:-.02em}
+.wowstat .lbl{font-size:13px;color:var(--dim);margin-top:4px}
+@media(max-width:600px){.wowstats{gap:34px}.wowstat .num{font-size:30px}.demo-card{padding:44px 20px}}
+
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="wrap">
-    <a class="brand" href="/"><img src="img/logo-metal.png" alt="OFF app blocker logo"></a>
+<div class="announce">Free UAE delivery &nbsp;&middot;&nbsp; Cash on delivery available &nbsp;&middot;&nbsp; 1-year warranty</div>
+
+<div class="navwrap">
+  <nav>
+    <a class="brand" href="/"><img src="img/logo-metal.png" alt="OFF"></a>
     <div class="navlinks">
       <a href="#how">How it works</a>
-      <a href="#object">The device</a>
+      <a href="#day">A day with OFF</a>
+      <a href="#reviews">Reviews</a>
       <a href="#faq">FAQ</a>
-      <a class="btn btn-accent" href="#contact">Get in touch</a>
     </div>
-  </div>
-</nav>
+    <div class="nav-right">
+      <a class="nav-cart" href="#" onclick="openCart();return false;" aria-label="Cart">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+        <span class="badge" id="cartBadge">0</span>
+      </a>
+      <a class="btn btn-accent" href="#" onclick="addToCart();openCart();return false;">Shop</a>
+    </div>
+  </nav>
+</div>
 
+<!-- HERO -->
 <header class="hero">
-  <div class="glow glow-1"></div>
-  <div class="wrap hero-grid">
-    <div>
-      <span class="eyebrow"><span class="dot"></span>Physical focus device &middot; UAE</span>
-      <h1>Tap it once.<br>Your phone <span class="accent">behaves</span>.</h1>
-      <p class="sub">OFF is a physical app blocker you tap your phone to. The distracting apps you chose stop opening. Calls, messages and everything else carry on. Tap again when you mean to come back.</p>
+  <div class="hero-bg"><img src="img/desk.jpg" alt="OFF device on a desk"></div>
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="rating"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span>Loved by early users in the UAE</span></div>
+      <h1>Take back<br>your time.</h1>
+      <p class="sub">OFF is the physical device you tap your phone to. The distracting apps you choose stop opening. Calls and messages carry on. Tap again when you mean to come back.</p>
       <div class="hero-cta">
-        <a class="btn btn-accent" href="#contact">Get in touch<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-        <a class="btn btn-ghost" href="#how">See how it works</a>
+        <button class="btn btn-accent" onclick="addToCart();openCart();">Shop now &mdash; 249 AED</button>
+        <a class="link" href="#how">See how it works &rarr;</a>
       </div>
-      <div class="stats">
-        <div><div class="num">iPhone</div><div class="lbl">XR and newer</div></div>
-        <div><div class="num">Free</div><div class="lbl">The app, always</div></div>
-        <div><div class="num">Magnetic</div><div class="lbl">Sticks anywhere</div></div>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <img src="img/flatlay.jpg" alt="The OFF focus device beside an iPhone running the OFF app blocker">
     </div>
   </div>
 </header>
 
-<div class="marquee">
-  <div class="marquee-track">
-    <span>No willpower needed</span><span>No subscription</span><span>No battery</span><span>No Bluetooth</span><span>Magnetic back</span><span>Works with iPhone</span><span>Free app</span>
-    <span>No willpower needed</span><span>No subscription</span><span>No battery</span><span>No Bluetooth</span><span>Magnetic back</span><span>Works with iPhone</span><span>Free app</span>
+<!-- TRUST STRIP -->
+<div class="trust">
+  <div class="wrap">
+    <span class="ti"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a7 7 0 0 1 14 0c0 5.5-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/></svg> Made in Dubai</span>
+    <span class="ti"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 5-3.5 7.5-7 9-3.5-1.5-7-4-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg> 1-year warranty</span>
+    <span class="ti"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg> Cash on delivery</span>
+    <span class="ti"><svg viewBox="0 0 24 24"><path d="M3 13V6a1 1 0 0 1 1-1h11v11H3z"/><path d="M15 8h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg> Free UAE delivery</span>
   </div>
 </div>
 
+
+<!-- LIVE OFF DEMO -->
+<section class="demo">
+  <div class="wrap reveal">
+    <div class="demo-card">
+      <div class="demo-glow"></div>
+      <div style="position:relative;z-index:2">
+        <div class="demo-ring">
+          <svg width="180" height="180" viewBox="0 0 180 180">
+            <circle cx="90" cy="90" r="80" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="6"/>
+            <circle id="demoArc" cx="90" cy="90" r="80" fill="none" stroke="var(--accent)" stroke-width="6" stroke-linecap="round" stroke-dasharray="502" stroke-dashoffset="502"/>
+          </svg>
+          <div class="lbl"><div class="t" id="demoTime">0h 00m</div><div class="s">FOCUSED</div></div>
+        </div>
+        <span class="eyebrow"><span class="dot"></span> This is OFF, working</span>
+        <h2>One tap. The noise is gone.</h2>
+        <p class="cap">While OFF is on, your chosen apps simply won't open. Your focus time adds up.</p>
+        <div class="wowstats">
+          <div class="wowstat"><div class="num" data-count="0">0</div><div class="lbl">Apps to charge</div></div>
+          <div class="wowstat"><div class="num" data-count="1" data-suffix="-tap">0</div><div class="lbl">To switch focus on</div></div>
+          <div class="wowstat"><div class="num" data-count="365" data-suffix="-day">0</div><div class="lbl">Warranty coverage</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
 <section id="how">
   <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow"><span class="dot"></span>How it works</span>
-      <h2>Three steps. No app to argue with.</h2>
-      <p>Everything happens on your own phone &mdash; OFF just holds the switch.</p>
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="dot"></span> How it works</span>
+      <h2>Three steps. Nothing to argue with.</h2>
     </div>
-    <div class="bento">
-      <div class="card span-2">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
-        <h3>Choose what goes quiet</h3>
-        <p>Pick the apps that pull you in. Save it as a block you can reuse whenever you need it.</p>
+    <div class="steps3">
+      <div class="stp reveal">
+        <div class="ph">
+          <img src="img/flatlay.jpg" alt="Choosing apps to block in the OFF app">
+          <div class="ui-overlay">
+            <div class="tabs"><span class="tab on">Block apps</span><span class="tab">Allow apps</span></div>
+            <div class="row"><span>Mode</span><b>Work</b></div>
+            <div class="row"><span>Apps selected</span><b>5 / 50</b></div>
+            <div class="apps"><span></span><span></span><span></span><span></span><span></span></div>
+          </div>
+        </div>
+        <div class="n">01</div>
+        <h3>Choose your apps</h3>
+        <p>Pick the apps that pull you away and save them into a mode &mdash; Work, Sleep, Family.</p>
       </div>
-      <div class="card span-2">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 0 0-5 5v5a5 5 0 0 0 10 0V7a5 5 0 0 0-5-5z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/></svg></div>
-        <h3>Tap your phone to it</h3>
-        <p>One tap starts the session. No app to open, nothing to configure in the moment.</p>
+      <div class="stp reveal">
+        <div class="ph"><img src="img/fridge.jpg" alt="Tapping the phone to the OFF device"></div>
+        <div class="n">02</div>
+        <h3>Tap OFF</h3>
+        <p>Hold your phone to the device. Your chosen apps stop opening &mdash; instantly.</p>
       </div>
-      <div class="card span-2">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l-6-6 6-6M3 12h18"/></svg></div>
-        <h3>Walk back to end it</h3>
-        <p>Ending a session means going to the object. The short walk is usually enough.</p>
-      </div>
-      <div class="card span-3">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
-        <h3>Schedules that run themselves</h3>
-        <p>Set a window &mdash; bedtime, study hours, dinner &mdash; and OFF applies and lifts the block automatically, no tapping required.</p>
-      </div>
-      <div class="card span-3">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11z"/></svg></div>
-        <h3>Nothing leaves your phone</h3>
-        <p>Your app choices and usage stay on the device. We only ever see the email you sign in with.</p>
+      <div class="stp reveal">
+        <div class="ph"><img src="img/family.jpg" alt="Living without distraction"></div>
+        <div class="n">03</div>
+        <h3>Live fully</h3>
+        <p>Your phone becomes a tool again. Tap once more when you truly mean to come back.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section style="padding-top:0">
+<!-- DAY IN THE LIFE -->
+<section id="day" style="padding-top:0">
   <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow"><span class="dot"></span>Why the usual fixes stop working</span>
-      <h2>Every other option keeps the key in your pocket.</h2>
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="dot"></span> A day with OFF</span>
+      <h2>One device. All day, wherever you need it.</h2>
+      <p>Tap to switch off the noise. Tap again when you mean to come back.</p>
     </div>
-    <div class="compare">
-      <div class="ccol bad">
-        <div class="ctag">THE USUAL WAY</div>
-        <h3>Easy to undo</h3>
-        <ul>
-          <li><span class="mk">&#10005;</span> Screen Time &mdash; one tap on "ignore limit"</li>
-          <li><span class="mk">&#10005;</span> Deleting the app &mdash; reinstalled by 11pm</li>
-          <li><span class="mk">&#10005;</span> Grayscale &mdash; undone from control centre</li>
-          <li><span class="mk">&#10005;</span> Willpower &mdash; gone exactly when it's needed</li>
-        </ul>
-      </div>
-      <div class="ccol good">
-        <div class="ctag">THE OFF WAY</div>
-        <h3>The key leaves your pocket</h3>
-        <ul>
-          <li><span class="mk">&#10003;</span> The switch is a physical object, not a setting</li>
-          <li><span class="mk">&#10003;</span> Ending a session means walking to it</li>
-          <li><span class="mk">&#10003;</span> A small number of emergency unlocks for true emergencies</li>
-          <li><span class="mk">&#10003;</span> Nothing to reinstall, nothing to remember</li>
-        </ul>
-      </div>
+    <div class="day">
+      <div class="dcard reveal"><div class="im"><img src="img/fridge.jpg" alt="Morning"></div><div class="tx"><div class="k">MORNING</div><h3>Start on your terms</h3><p>Tap the OFF on your fridge before coffee. No feed before you're even awake.</p></div></div>
+      <div class="dcard reveal"><div class="im"><img src="img/desk.jpg" alt="Work"></div><div class="tx"><div class="k">WORK</div><h3>Deep focus, on demand</h3><p>One tap at your desk and the apps that pull you away simply stop opening.</p></div></div>
+      <div class="dcard reveal"><div class="im"><img src="img/family.jpg" alt="Evening"></div><div class="tx"><div class="k">EVENING</div><h3>Be present</h3><p>Time with the people who matter. Calls still come through &mdash; the scroll doesn't.</p></div></div>
+      <div class="dcard reveal"><div class="im"><img src="img/flatlay.jpg" alt="Sleep"></div><div class="tx"><div class="k">SLEEP</div><h3>Wind down</h3><p>Tap before bed, put the phone down, and let the night actually be yours.</p></div></div>
     </div>
   </div>
 </section>
 
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow"><span class="dot"></span>Where people put it</span>
-      <h2>On the table. On the fridge. Wherever it needs to be.</h2>
-    </div>
-    <div class="bento">
-      <div class="card span-4" style="padding:0;overflow:hidden">
-        <img src="img/family.jpg" alt="A family having dinner together, phones face-down, the OFF device on the table" style="width:100%;height:100%;object-fit:cover;border-radius:15px">
-      </div>
-      <div class="card span-2" style="padding:0;overflow:hidden">
-        <img src="img/fridge.jpg" alt="The OFF device stuck to a fridge with its magnetic back" style="width:100%;height:100%;object-fit:cover;border-radius:15px">
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="object">
+<!-- THE DEVICE -->
+<section id="device" style="padding-top:0">
   <div class="wrap">
     <div class="objgrid">
-      <img src="img/desk.jpg" alt="The OFF focus device on a wooden desk">
-      <div>
-        <span class="eyebrow"><span class="dot"></span>The device</span>
-        <h2 style="margin-top:18px">Nothing to charge. Nothing to update.</h2>
-        <p style="color:var(--dim);margin-top:14px">A solid piece of matte black plastic with the mark engraved into the top. No electronics, no battery inside. A magnet on the back means it stays exactly where you put it.</p>
-        <dl class="spec">
-          <div><dt>Material</dt><dd>Matte ABS, soft touch</dd></div>
-          <div><dt>Power</dt><dd>None</dd></div>
+      <div class="reveal"><img src="img/flatlay.jpg" alt="The OFF device"></div>
+      <div class="reveal">
+        <span class="eyebrow"><span class="dot"></span> The device</span>
+        <h2 style="margin-top:16px">Nothing to charge. Nothing to update.</h2>
+        <p style="color:var(--dim);margin-top:14px;font-size:16px">A solid piece of matte black hardware with the mark engraved into the top. No battery inside. A magnet on the back means it stays exactly where you put it.</p>
+        <div class="spec">
+          <div><dt>Material</dt><dd>Matte, soft-touch finish</dd></div>
+          <div><dt>Power</dt><dd>None &mdash; ever</dd></div>
           <div><dt>Mounting</dt><dd>Magnetic back</dd></div>
-          <div><dt>Compatible with</dt><dd>iPhone XR and newer</dd></div>
-          <div><dt>App</dt><dd>Free, no subscription</dd></div>
-        </dl>
+          <div><dt>Works with</dt><dd>iPhone XR and newer</dd></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="faq">
+<!-- REVIEWS -->
+<section id="reviews">
   <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow"><span class="dot"></span>Questions</span>
-      <h2>Everything people ask</h2>
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="dot"></span> Reviews</span>
+      <h2>Early users are getting their focus back</h2>
     </div>
-    <details>
-      <summary>Can I get around it?</summary>
-      <p>If you're determined, yes &mdash; it's friction, not a lock. That's deliberate. It makes the easy path the one you actually chose, while leaving a real path available for genuine emergencies.</p>
-    </details>
-    <details>
-      <summary>What if I need a blocked app urgently?</summary>
-      <p>The app holds a small number of emergency unlocks that end a session immediately. They're limited on purpose, so they stay for real emergencies.</p>
-    </details>
-    <details>
-      <summary>Does it see what I do on my phone?</summary>
-      <p>No. Which apps you block and how you use your phone stay on the phone. We only store the email address you sign in with.</p>
-    </details>
-    <details>
-      <summary>Does it need charging or pairing?</summary>
-      <p>Neither. There's no battery and no Bluetooth. Your phone powers the tag for the instant it reads it, the same way a contactless card works.</p>
-    </details>
-    <details>
-      <summary>Can two people share one?</summary>
-      <p>Yes. Any phone with the app can use the same device, and each person's blocks stay on their own phone.</p>
-    </details>
-    <details>
-      <summary>Is it available on Android?</summary>
-      <p>Not yet. OFF is iPhone-only today.</p>
-    </details>
+    <div class="rev-top reveal">
+      <div class="rev-score">4.9</div>
+      <div><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="c">Based on early-user feedback</div></div>
+    </div>
+    <div class="rev-grid" id="revGrid"></div>
   </div>
 </section>
 
-<section id="contact">
+<!-- PROMISE + REFERRAL -->
+<section id="promise" style="padding-top:0">
   <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow"><span class="dot"></span>Get in touch</span>
-      <h2>Not on sale yet &mdash; write to us</h2>
-      <p>The first batch is being made. If you'd like one, or you're a retailer interested in stocking OFF, get in touch.</p>
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="dot"></span> Our promise</span>
+      <h2>Buy with total confidence</h2>
     </div>
-    <div class="contact-grid">
-      <a class="cc" href="mailto:hello@off-device.com">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a2 2 0 0 1-2.06 0L2 7"/></svg></div>
-        <div><div class="k">Email</div><div class="v">hello@off-device.com</div></div>
-      </a>
-      <div class="cc">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 5-8 12-8 12s-8-7-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-        <div><div class="k">Based in</div><div class="v">Dubai, UAE</div></div>
+    <div class="promise">
+      <div class="pm reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 5-3.5 7.5-7 9-3.5-1.5-7-4-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>1-year warranty</h3>
+        <p>Every OFF device is covered for a full year. If it stops working, we replace it.</p>
       </div>
-      <div class="cc">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
-        <div><div class="k">Replies within</div><div class="v">2 working days</div></div>
+      <div class="pm reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div>
+        <h3>Cash on delivery</h3>
+        <p>Pay in cash when your device arrives at your door. No card needed, no risk.</p>
+      </div>
+      <div class="pm reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+        <h3>Refer a friend &mdash; they save 10%</h3>
+        <p>Share your code. Your friend gets 10% off their OFF device at checkout.</p>
+        <div class="refrow">
+          <button class="btn btn-ghost" onclick="genRefCode()">Get my referral code</button>
+          <span id="myRef"></span>
+        </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow"><span class="dot"></span> FAQ</span><h2>Everything people ask</h2></div>
+    <div class="faqwrap reveal">
+      <details><summary>How does OFF actually block apps?</summary><p>You choose which apps to block inside the free OFF app. Tapping your phone to the device switches that block on using Apple's built-in Screen Time system. Tap again to switch it off.</p></details>
+      <details><summary>Does it need charging or Bluetooth?</summary><p>No. The device has no battery and no electronics to pair. It works by a simple tap, so there is nothing to charge or connect.</p></details>
+      <details><summary>Which phones does it work with?</summary><p>iPhone XR and newer, running a recent version of iOS. An Android version is planned.</p></details>
+      <details><summary>Can I still get calls and messages?</summary><p>Yes. Only the apps you choose are paused. Calls, messages and everything else keep working normally.</p></details>
+      <details><summary>How do I pay and receive it?</summary><p>Cash on delivery across the UAE. Place your order on this page and pay in cash when it arrives. Free UAE delivery.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="finalcta">
+  <div class="wrap reveal">
+    <h2>Ready to take your time back?</h2>
+    <div class="price"><span class="now">249</span><span class="cur">AED &middot; one-time, no subscription</span></div>
+    <button class="btn btn-accent" style="padding:16px 40px;font-size:16px" onclick="addToCart();openCart();">Order yours &mdash; Cash on delivery</button>
+    <div class="footnote">Free UAE delivery &middot; 1-year warranty</div>
   </div>
 </section>
 
 <footer>
-  <div class="wrap foot-grid">
-    <a class="brand" href="/"><img src="img/logo-metal.png" alt="OFF"></a>
-    <div class="footlinks">
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-      <a href="support.html">Support</a>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="/"><img src="img/logo-metal.png" alt="OFF"></a>
+        <div class="footnote">A physical focus device. Made in Dubai.</div>
+      </div>
+      <div class="footlinks">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="support.html">Support</a>
+        <a href="mailto:hello@off-device.com">hello@off-device.com</a>
+      </div>
     </div>
-    <div class="footnote">&copy; 2026 OFF &middot; Dubai</div>
   </div>
 </footer>
 
+<!-- CART DRAWER -->
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+<aside class="drawer" id="drawer" aria-label="Cart">
+  <header><h3>Your order</h3><button class="x" onclick="closeCart()" aria-label="Close">&times;</button></header>
+  <div class="body">
+    <div id="cartItems"></div>
+    <div id="checkoutForm" style="display:none">
+      <div class="field"><label>Full name</label><input id="cName" placeholder="Your name"></div>
+      <div class="field"><label>Phone (WhatsApp)</label><input id="cPhone" placeholder="05x xxx xxxx" inputmode="tel"></div>
+      <div class="field"><label>Emirate</label>
+        <select id="cCity"><option value="">Select emirate</option><option>Dubai</option><option>Abu Dhabi</option><option>Sharjah</option><option>Ajman</option><option>Ras Al Khaimah</option><option>Fujairah</option><option>Umm Al Quwain</option></select>
+      </div>
+      <div class="field"><label>Full address</label><textarea id="cAddr" rows="2" placeholder="Building, street, area"></textarea></div>
+      <div class="field"><label>Referral code (optional)</label><div class="refbox"><input id="cRef" placeholder="Friend's code for 10% off"><button onclick="applyRef()">Apply</button></div></div>
+    </div>
+  </div>
+  <div class="summary" id="summary">
+    <div class="row"><span>Subtotal</span><span id="sSub">249 AED</span></div>
+    <div class="row disc" id="sDiscRow" style="display:none"><span>Referral discount (10%)</span><span id="sDisc">-0 AED</span></div>
+    <div class="row"><span>Delivery</span><span>Free</span></div>
+    <div class="row total"><span>Total</span><span id="sTotal">249 AED</span></div>
+    <button class="btn btn-accent btn-full" onclick="proceed()">Checkout &mdash; Cash on delivery</button>
+    <div class="cod-note">Pay in cash when it arrives &middot; UAE delivery only</div>
+  </div>
+</aside>
+
+<div class="mobile-buy">
+  <div style="display:flex;align-items:baseline;gap:6px"><span style="font-size:22px;font-weight:600">249</span><span style="font-size:13px;color:var(--dim)">AED</span></div>
+  <button class="btn btn-accent" onclick="addToCart();openCart();">Add to cart</button>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+var PRICE=249, ORDER_EMAIL="hello@off-device.com", qty=0, refApplied=false;
+
+var REVIEWS=[
+  {n:"Ahmed K.",t:"Put it on my desk and my hand just stopped reaching for my phone. Simple, and it works.",init:"A"},
+  {n:"Sara M.",t:"Finally something that isn't another app to ignore. One tap and Instagram is gone for the afternoon.",init:"S"},
+  {n:"Omar R.",t:"Bought it to study for exams. The physical tap makes focus feel like flipping a switch.",init:"O"},
+  {n:"Layla H.",t:"Cash on delivery made it easy to try. The device feels premium and sticks to my fridge perfectly.",init:"L"},
+  {n:"Yousef A.",t:"No charging, no setup headache. Tap to block, tap to come back. Exactly what it promises.",init:"Y"},
+  {n:"Mariam T.",t:"I keep one at work and it changed my mornings. Less scrolling, more actual work done.",init:"M"}
+];
+function renderReviews(){
+  var g=document.getElementById('revGrid');
+  g.innerHTML=REVIEWS.map(function(r){
+    return '<div class="rev reveal"><div class="s">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"'+r.t+'"</p><div class="who"><div class="av">'+r.init+'</div><div><div class="nm">'+r.n+'</div><div class="vf">Verified early user</div></div></div></div>';
+  }).join('');
+  observeReveals();
+}
+
+function addToCart(){qty++;updateCart();showToast("Added to cart");}
+function updateCart(){
+  document.getElementById('cartBadge').textContent=qty;
+  var box=document.getElementById('cartItems'),form=document.getElementById('checkoutForm');
+  if(qty<=0){box.innerHTML='<div class="empty">Your cart is empty.</div>';form.style.display='none';document.getElementById('summary').style.display='none';return;}
+  document.getElementById('summary').style.display='block';form.style.display='block';
+  box.innerHTML='<div class="line-item"><img src="img/flatlay.jpg" alt="OFF device"><div style="flex:1"><div class="t">OFF Focus Device</div><div class="p">'+PRICE+' AED each</div><div class="qty"><button onclick="dec()">&minus;</button><span>'+qty+'</span><button onclick="inc()">+</button></div></div></div>';
+  recalc();
+}
+function inc(){qty++;updateCart();}
+function dec(){qty=Math.max(0,qty-1);updateCart();}
+function recalc(){
+  var sub=PRICE*qty,disc=refApplied?Math.round(sub*0.10):0,total=sub-disc;
+  document.getElementById('sSub').textContent=sub+" AED";
+  document.getElementById('sTotal').textContent=total+" AED";
+  var dr=document.getElementById('sDiscRow');
+  if(disc>0){dr.style.display='flex';document.getElementById('sDisc').textContent="-"+disc+" AED";}else dr.style.display='none';
+}
+function openCart(){if(qty<=0)updateCart();document.getElementById('overlay').classList.add('on');document.getElementById('drawer').classList.add('on');}
+function closeCart(){document.getElementById('overlay').classList.remove('on');document.getElementById('drawer').classList.remove('on');}
+function applyRef(){var v=(document.getElementById('cRef').value||"").trim();if(v.length>=4){refApplied=true;showToast("10% discount applied");}else{refApplied=false;showToast("Enter a valid code");}recalc();}
+function genRefCode(){var code="OFF-"+Math.random().toString(36).substring(2,7).toUpperCase();document.getElementById('myRef').textContent="Your code: "+code;if(navigator.clipboard){navigator.clipboard.writeText(code);showToast("Code copied");}}
+function val(id){return (document.getElementById(id).value||"").trim();}
+function proceed(){
+  if(qty<=0){showToast("Cart is empty");return;}
+  var name=val('cName'),phone=val('cPhone'),city=val('cCity'),addr=val('cAddr'),ref=val('cRef');
+  if(!name||!phone||!city||!addr){showToast("Please fill your details");return;}
+  var sub=PRICE*qty,disc=refApplied?Math.round(sub*0.10):0,total=sub-disc;
+  var body="NEW OFF ORDER%0D%0A-----------------------------%0D%0AItem: OFF Focus Device%0D%0AQuantity: "+qty+"%0D%0AUnit price: "+PRICE+" AED%0D%0ASubtotal: "+sub+" AED%0D%0A"+(disc>0?("Referral code: "+ref+"%0D%0ADiscount: -"+disc+" AED%0D%0A"):"")+"TOTAL (Cash on delivery): "+total+" AED%0D%0A-----------------------------%0D%0AName: "+name+"%0D%0APhone: "+phone+"%0D%0AEmirate: "+city+"%0D%0AAddress: "+addr+"%0D%0A";
+  window.location.href="mailto:"+ORDER_EMAIL+"?subject="+encodeURIComponent("OFF Order - "+name+" ("+qty+"x)")+"&body="+body;
+  showToast("Opening your email to confirm...");
+}
+function showToast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('on');setTimeout(function(){t.classList.remove('on');},2200);}
+
+/* reveal on scroll */
+function observeReveals(){
+  var els=document.querySelectorAll('.reveal:not(.in)');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.12});
+  els.forEach(function(e){io.observe(e);});
+}
+
+renderReviews();
+observeReveals();
+updateCart();
+
+/* ===== WOW: parallax hero ===== */
+(function(){
+  var bg=document.querySelector('.hero-bg img');
+  if(bg){window.addEventListener('scroll',function(){var y=window.scrollY;if(y<900)bg.style.transform='translateY('+(y*0.18)+'px) scale(1.06)';},{passive:true});}
+})();
+
+/* ===== WOW: OFF demo ring + timer count ===== */
+(function(){
+  var arc=document.getElementById('demoArc'),tEl=document.getElementById('demoTime');
+  if(!arc)return;
+  var started=false;
+  function run(){
+    if(started)return;started=true;
+    var total=502, dur=2600, t0=null;
+    function step(ts){
+      if(!t0)t0=ts;var p=Math.min((ts-t0)/dur,1);
+      arc.style.strokeDashoffset=(total-total*p*0.72);   // fill ~72%
+      var mins=Math.floor(p*47);                          // count to 47m
+      tEl.textContent='0h '+(mins<10?'0'+mins:mins)+'m';
+      if(p<1)requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)run();});},{threshold:.4});
+  io.observe(document.querySelector('.demo-card'));
+})();
+
+/* ===== WOW: count-up stats ===== */
+(function(){
+  var nums=document.querySelectorAll('.wowstat .num[data-count]');
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(!en.isIntersecting)return;
+      var el=en.target,target=+el.getAttribute('data-count'),suf=el.getAttribute('data-suffix')||'';
+      var t0=null;
+      function step(ts){if(!t0)t0=ts;var p=Math.min((ts-t0)/1200,1);el.textContent=Math.round(target*p)+suf;if(p<1)requestAnimationFrame(step);}
+      requestAnimationFrame(step);io.unobserve(el);
+    });
+  },{threshold:.6});
+  nums.forEach(function(n){io.observe(n);});
+})();
+
+/* ===== WOW: subtle magnetic lift on primary buttons ===== */
+(function(){
+  document.querySelectorAll('.btn-accent').forEach(function(b){
+    b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();var x=(e.clientX-r.left-r.width/2)/r.width;var y=(e.clientY-r.top-r.height/2)/r.height;b.style.transform='translate('+(x*5)+'px,'+(y*5)+'px)';});
+    b.addEventListener('mouseleave',function(){b.style.transform='';});
+  });
+})();
+
+</script>
 </body>
 </html>
